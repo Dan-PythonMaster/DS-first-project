@@ -1,0 +1,98 @@
+\documentclass[10pt]{article}
+
+\usepackage{fancyhdr, graphicx, geometry, tikz, url}
+\usetikzlibrary{calc}
+\geometry{
+    a4paper,
+    top=25mm,
+    headsep=40pt,
+    footskip=30pt
+}
+
+% custom list styles like 1) 2) 3) or (a) (b) (c) etc.
+\usepackage[shortlabels]{enumitem}
+
+% my path to pictures - change to yours
+\graphicspath{ {C:/Users/bakal/OneDrive - ITU/ITU, BSc Data Science (Semester 1)/Latex pictures/} }
+
+\begin{document}
+
+% setting up header and footer
+\pagestyle{fancy}
+\fancyhead[L]{Preliminary Assignment\\}
+\fancyhead[R]{}
+\fancyhead[C]{\textbf{Summary of data exploration}}
+\fancyfoot[L]{Projects in Data Science}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{1pt}
+
+% --- Title (page 1) ---
+\begin{titlepage}
+   \begin{center}
+        % ITU logo center top
+        \begin{figure}[t]
+            \centering
+            \includegraphics[scale=0.2]{ITU_logo_UK.jpg}
+        \end{figure}
+        
+        \vspace*{5cm}      
+        % background rectangle
+        \begin{tikzpicture}[remember picture,overlay]
+            % color
+            \colorlet{tugray}{black!7}  
+            % ---- Position and size controls -----------------------------------
+            % topShift: how far down from the top edge the rectangle starts
+            \def\topShift{8.5cm}   % increase to move the bar lower
+            % height: the vertical thickness of the rectangle
+            \def\heightRect{6cm} % increase for a taller bar    
+            % draw shape
+            \fill[tugray] 
+                ($(current page.north west)+(0,-\topShift)$)          % top-left corner
+                rectangle 
+                ($(current page.north east)+(0,-\topShift-\heightRect)$); % bottom-right corner
+        \end{tikzpicture}
+
+        % title
+        \textbf{\huge{Summary of data exploration}}
+
+        % subtitle
+        \vspace{0.5cm}
+        Preliminary Assignment
+
+        % authors    
+        \vspace{1.5cm}
+        \textbf{Bartosz Kaluski, Alexandru Poputoaia-Ungureanu, Dan Bivol\\Laura Jakubiak, Sergiu Cristian Baba}
+
+        % link to github repo
+        \vfill     
+        GitHub repository can be found at: \url{https://github.com/alexandrup2015-rgb/DS-first-project}
+            
+        
+        % kept it here in case we want to put logo below the title and stuff
+        %\vspace{0.8cm}
+        %\includegraphics[scale=0.2]{ITU_logo_UK.jpg}
+
+        % date of compilation
+        \vspace{0.8cm}
+        \today
+            
+   \end{center}
+\end{titlepage}
+
+% --- Content ---
+\newpage
+\pagenumbering{arabic} % to start page counting on content page
+\pagestyle{fancy}
+\setcounter{page}{1}
+
+Table of contents:
+\begin{enumerate}
+    \item Scope: total images, how many annotated, where they came from.
+    \item Labels: explain briefly what each column/feature means
+    \item Image properties: resolution, file type.
+    \item How we annotated images (talk about that everyone went through the set of images individually and gave their own annotation values, then we combined them in the master file)
+\end{enumerate}
+
+\end{document}
